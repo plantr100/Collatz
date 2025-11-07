@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "collatz-standalone"
+version = "0.1.0"
+description = "Standalone Collatz explorer with GUI launcher."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [
+  { name = "Robert Adam Plant" }
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Intended Audience :: End Users/Desktop",
+  "Topic :: Scientific/Engineering :: Mathematics",
+  "Topic :: Utilities"
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "pyinstaller>=5.13"
+]
+
+[project.scripts]
+collatz-cli = "collatz_standalone.cli:main"
+collatz-gui = "collatz_standalone.gui:run_app"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
